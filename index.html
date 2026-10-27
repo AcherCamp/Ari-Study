@@ -1,0 +1,156 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f2">
+  <meta name="description" content="Repasos escolares de Lenguaje y Artes.">
+  <title>Repasos de Ari</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="js/preguntas.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="home-link">Ari<span>Estudia</span></a>
+    <span class="topbar-note">Un paso a la vez 🌱</span>
+  </header>
+
+  <main class="container">
+    <section id="home-screen" class="screen">
+      <div class="intro">
+        <p class="eyebrow">TU ESPACIO DE REPASO</p>
+        <h1>Aprender también es practicar.</h1>
+        <p>Escoge una materia y prepara tu próximo examen a tu ritmo.</p>
+      </div>
+
+      <h2 class="section-title">¿Qué vamos a repasar?</h2>
+
+      <div class="subject-grid">
+        <button class="subject-card" data-subject="lenguaje">
+          <span class="subject-icon">📚</span>
+          <span class="subject-name">Lenguaje</span>
+          <span class="subject-description">Textos, gramática y literatura</span>
+          <span class="card-link">Elegir materia →</span>
+        </button>
+
+        <button class="subject-card" data-subject="artes">
+          <span class="subject-icon">🎨</span>
+          <span class="subject-name">Artes</span>
+          <span class="subject-description">Música, patrimonio y expresión</span>
+          <span class="card-link">Elegir materia →</span>
+        </button>
+      </div>
+
+      <div id="saved-notice" class="saved-notice hidden">
+        <div>
+          <strong>Tienes un repaso guardado</strong>
+          <p id="saved-description">Puedes continuar donde lo dejaste.</p>
+        </div>
+        <button id="resume-button" class="button button-primary">Continuar</button>
+      </div>
+
+      <p class="privacy-note">Tu progreso se guarda en este navegador.</p>
+    </section>
+
+    <section id="mode-screen" class="screen hidden">
+      <button class="back-button" id="back-home">← Materias</button>
+
+      <div class="page-heading">
+        <p class="eyebrow">ELIGE TU RITMO</p>
+        <h1 id="mode-title">Lenguaje</h1>
+        <p id="mode-description">Practica un poco o repasa a fondo.</p>
+      </div>
+
+      <div class="mode-grid">
+        <button class="mode-card" data-mode="rapido">
+          <span class="mode-icon">⚡</span>
+          <span class="mode-name">Cuestionario rápido</span>
+          <span class="mode-description" id="quick-count">12 preguntas</span>
+          <span class="card-link">Empezar →</span>
+        </button>
+
+        <button class="mode-card" data-mode="completo">
+          <span class="mode-icon">📖</span>
+          <span class="mode-name">Cuestionario completo</span>
+          <span class="mode-description" id="full-count">35 preguntas</span>
+          <span class="card-link">Empezar →</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="quiz-screen" class="screen hidden">
+      <div class="quiz-header">
+        <button id="exit-quiz" class="back-button">← Salir</button>
+        <span id="quiz-subject" class="subject-pill">Lenguaje</span>
+      </div>
+
+      <div class="progress-info">
+        <span id="question-counter">Pregunta 1 de 12</span>
+        <span id="score-counter">0 respondidas</span>
+      </div>
+
+      <div class="progress-track">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+
+      <article class="question-card">
+        <p id="question-topic" class="eyebrow">TEMA</p>
+        <h1 id="question-text">Aquí aparecerá la pregunta.</h1>
+        <p id="question-hint" class="question-hint">
+          Selecciona una respuesta.
+        </p>
+        <div id="options-list" class="options-list"></div>
+        <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+
+        <div class="quiz-actions">
+          <button id="check-answer" class="button button-primary" disabled>
+            Comprobar respuesta
+          </button>
+          <button id="next-question" class="button button-primary hidden">
+            Siguiente pregunta →
+          </button>
+        </div>
+      </article>
+      <p class="privacy-note">Puedes cerrar la página y continuar después.</p>
+    </section>
+
+    <section id="result-screen" class="screen hidden">
+      <div class="result-card">
+        <span class="result-icon">🌟</span>
+        <p class="eyebrow">REPASO TERMINADO</p>
+        <h1 id="result-title">¡Buen trabajo!</h1>
+        <p id="result-message">Has terminado el cuestionario.</p>
+        <div class="result-score">
+          <strong id="result-percentage">0%</strong>
+          <span id="result-fraction">0 de 12 correctas</span>
+        </div>
+        <div class="result-details">
+          <div><strong id="result-correct">0</strong><span>Correctas</span></div>
+          <div><strong id="result-wrong">0</strong><span>Incorrectas</span></div>
+          <div><strong id="result-skipped">0</strong><span>Sin responder</span></div>
+        </div>
+        <button id="retry-button" class="button button-primary button-wide">
+          Intentar de nuevo
+        </button>
+        <button id="review-button" class="button button-secondary button-wide">
+          Revisar respuestas
+        </button>
+        <button id="return-home" class="button button-text button-wide">
+          Volver a las materias
+        </button>
+      </div>
+
+      <div id="review-list" class="review-list hidden">
+        <h2>Repasemos los resultados</h2>
+        <div id="review-content"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Hecho para aprender, practicar y volver a intentarlo.
+  </footer>
+</body>
+</html>
