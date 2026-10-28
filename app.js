@@ -1,4 +1,5 @@
 
+
 const CONFIG = {
   lenguaje: {
     nombre: "Lenguaje",
@@ -9,6 +10,21 @@ const CONFIG = {
     nombre: "Artes",
     rapido: 8,
     completo: 12
+  },
+  sociales: {
+    nombre: "Estudios Sociales",
+    rapido: 12,
+    completo: 35
+  },
+  ciencias: {
+    nombre: "Ciencias",
+    rapido: 12,
+    completo: 35
+  },
+  matematicas: {
+    nombre: "Matemáticas",
+    rapido: 12,
+    completo: 35
   }
 };
 
